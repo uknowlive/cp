@@ -1,0 +1,146 @@
+<div class="container posr">
+    <div class="navbar-header col-sm-5 col-sm-5-30">
+        <a href="javascript:;" class="icon iconfont icon-cai navbar-toggle visible-xs-block" ms-on-click="toggleHandler"></a>
+        <a href="/" class="navbar-brand">
+            <i class="icon iconfont icon-logo"></i>
+            <i class="icon iconfont icon-slogan"></i>
+        </a>
+    </div>
+    <nav class="collapse navbar-collapse visible-xs-hidden">
+        <div class="user-info" ms-if="isLogin">
+            <span class="text-warning">你好, <strong>{{uBean.username}}</strong></span>
+            <a href="javascript:;" class="btn btn-warning">
+                <s class="icon iconfont icon-recharge"></s>
+                充值
+            </a>
+            <a href="javascript:;" class="btn btn-danger">
+                <s class="icon iconfont icon-transfer"></s>
+                转账
+            </a>
+            <a href="javascript:;" class="btn btn-success">
+                <s class="icon iconfont icon-withdraw"></s>
+                提现
+            </a>
+            <a href="javascript:;" title="消息中心" class="posr icon iconfont icon-mail">
+                <s class="acount posa">10</s>
+            </a>
+            <a href="javascript:;" title="退出" class="icon iconfont icon-logout" ms-click="logout"></a>
+        </div>
+        <div class="loginbar" ms-if="!isLogin">
+            <form class="form-inline pull-right" ms-submit="login">
+                <div class="form-group posr">
+                    <label class="posa icon iconfont icon-user-center"></label>
+                    <input type="text" tabindex="1" class="username form-control form-control-for-web" ms-duplex-string="loginPost.username" placeholder="用户名">
+                </div>
+                <div class="form-group posr">
+                    <label class="posa icon iconfont icon-password"></label>
+                    <input type="password" tabindex="2" class="password form-control form-control-for-web" ms-duplex-string="loginPost.password" placeholder="密码">
+                </div>
+                <div class="form-group posr" ms-click="click">
+                    <label class="posa icon iconfont icon-vcode"></label>
+                    <input type="text" tabindex="3" autocomplete="off" maxlength="4" ms-on-focus="focus" ms-duplex-string="loginPost.checkcode" class="form-control form-control-for-web verificationcode" placeholder="验证码">
+                    <div class="vcode posa" ms-visible="showcode">
+                        <a href="javascript:;" title="更换验证码" class="icon iconfont icon-refresh" ms-class-icon-spin="!codeloaded" ms-click="refreshCode"></a>
+                        <img ms-attr-src="codelink" ms-on-load="loadcode">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-warning" disabled="disabled" ms-if="ajaxLoading">
+                    <s class="icon iconfont icon-loading icon-spin"></s>
+                </button>
+                <button type="submit" class="btn btn-warning btn-for-web" ms-if="!ajaxLoading">登录</button>
+                <button type="button" class="btn btn-default btn-for-web">注册</button>
+            </form>
+        </div>
+        <div class="nav navbar-nav">
+            <a href="#!/" class="col-sm-1 col-sm-1-10" ms-class-active="active === 'home'">首页</a>
+            <a href="#!/lottery" class="col-sm-1 col-sm-1-10" ms-class-active="active === 'lottery'">彩票</a>
+            <a href="#!/sport" class="col-sm-1 col-sm-1-10" ms-class-active="active === 'sport'" ms-on-mousemove="mousemove" ms-on-mouseenter="mouseenter">体育博彩</a>
+            <a href="#!/on" class="col-sm-1 col-sm-1-10" ms-class-active="active === 'on'" ms-on-mousemove="mousemove" ms-on-mouseenter="mouseenter">真人娱乐场</a>
+            <a href="#!/slot" class="col-sm-1 col-sm-1-10" ms-class-active="active === 'slot'" ms-on-mousemove="mousemove" ms-on-mouseenter="mouseenter">电子游戏</a>
+            <a href="#!/shark" class="col-sm-1 col-sm-1-10" ms-class-active="active === 'shark'" ms-on-mousemove="mousemove" ms-on-mouseenter="mouseenter">捕鱼</a>
+            <a href="#!/coupon" class="col-sm-1 col-sm-1-10" ms-class-active="active === 'coupon'" ms-on-mousemove="mousemove">优惠</a>
+        </div>
+    </nav>
+</div>
+<div class="oprated-pannel visible-xs-block animated" ms-if="pannelToggle">
+    <div class="container animated" ms-class-fadeindownbig="pannelToggle">
+        <div class="user" ms-if="isLogin">
+            <span class="text-warning">你好, <strong>{{uBean.username}}</strong></span>
+            <a href="javascript:;" class="btn btn-warning">
+                <s class="icon iconfont icon-recharge"></s>
+                充值
+            </a>
+            <a href="javascript:;" class="btn btn-danger">
+                <s class="icon iconfont icon-transfer"></s>
+                转账
+            </a>
+            <a href="javascript:;" class="btn btn-success">
+                <s class="icon iconfont icon-withdraw"></s>
+                提现
+            </a>
+            <a href="javascript:;" title="消息中心" class="posr icon iconfont icon-mail">
+                <s class="acount posa">10</s>
+            </a>
+            <a href="javascript:;" title="退出" class="icon iconfont icon-logout" ms-click="logout"></a>
+        </div>
+        <form class="login" ms-if="!isLogin" ms-submit="login">
+            <div class="form-group">
+                <input type="text" class="form-control username" ms-duplex-string="loginPost.username" placeholder="用户名">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control password" ms-duplex-string="loginPost.password" placeholder="密码">
+            </div>
+            <div class="form-group vcode">
+                <img ms-attr-src="codelink" ms-click="refreshCode">
+                <input type="text" maxlength="4" ms-duplex-string="loginPost.checkcode" class="form-control verificationcode" placeholder="验证码">
+            </div>
+            <button type="submit" class="btn btn-warning" disabled="disabled" ms-if="ajaxLoading">
+                <s class="icon iconfont icon-loading icon-spin"></s>
+            </button>
+            <div class="text-center">
+                <button type="submit" class="btn btn-warning" ms-if="!ajaxLoading">登录</button>
+                <button type="button" class="btn btn-default">注册</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+<div class="sys-notice posa">
+    <div class="container"></div>
+</div>
+<div class="submenu posa" ms-on-mousemove="mousemove" id="submenu">
+    <div class="container">
+        <div class="col-sm-5 col-sm-5-50"></div>
+        <div class="col-sm-1 col-sm-1-10">
+            <a class="text-overflow" href="javascript:;">沙巴体育</a>
+            <a class="text-overflow hot" href="javascript:;">
+                IM体育
+                <s class="icon iconfont icon-remen"></s>
+            </a>
+        </div>
+        <div class="col-sm-1 col-sm-1-10">
+            <a class="text-overflow hot" href="javascript:;">
+                AG
+                <s class="icon iconfont icon-remen"></s>
+            </a>
+            <a class="text-overflow" href="javascript:;">BBIN</a>
+        </div>
+        <div class="col-sm-1 col-sm-1-10">
+            <a class="text-overflow hot" href="javascript:;">
+                PT老虎机
+                <s class="icon iconfont icon-remen"></s>
+            </a>
+            <a class="text-overflow" href="javascript:;">MG老虎机</a>
+            <a class="text-overflow" href="javascript:;">TTG老虎机</a>
+            <a class="text-overflow hot" href="javascript:;">
+                HB老虎机
+                <s class="icon iconfont icon-remen"></s>
+            </a>
+            <a class="text-overflow" href="javascript:;">PNG老虎机</a>
+        </div>
+        <div class="col-sm-1 col-sm-1-10">
+            <a class="text-overflow" href="javascript:;">GG捕鱼王</a>
+            <a class="text-overflow" href="javascript:;">PT深海大赢家</a>
+        </div>
+    </div>
+</div>

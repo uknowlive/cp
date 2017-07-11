@@ -1,0 +1,82 @@
+<div class="container model-home" ms-controller="home">
+    <div class="col-xs-12 col-sm-8 content-left">
+        <div id="carousel" class="carousel slide" ms-on-mouseenter="mouseenter" ms-on-mouseleave="mouseleave">
+            <ol class="carousel-nav">
+                <li ms-repeat="sliderList" class="col-xs-3" ms-click="clickHandler($index)" ms-class-active="$index === active">
+                    {{el.title|html}}
+                </li>
+            </ol>
+            <div class="carousel-inner">
+                <a ms-repeat="sliderList" class="item" ms-attr-href="{{el.href}}" ms-class-active="$index === active">
+                    <img ms-attr-data-lazyload-original="{{el.src}}" data-lazyload-width="100%" data-lazyload-itemeffect="fadeIn" ms-lazyload>
+                </a>
+            </div>
+            <a class="left carousel-control" href="javascript:;" ms-click="clickHandler('prev')">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </a>
+            <a class="right carousel-control" href="javascript:;" ms-click="clickHandler('next')">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="row">
+            <div class="content-left-floor col-xs-12 col-sm-6">
+                <img data-lazyload-original="/images/fishing-bannerV02.gif" data-lazyload-width="100%" data-lazyload-height="auto" data-lazyload-itemeffect="fadeIn" ms-lazyload>
+            </div>
+            <div class="posr content-left-floor col-xs-12 col-sm-6">
+                <img ms-attr-title="el.name" class="animated" ms-visible="el.active" ms-repeat="tabList" ms-class-fadeout="!el.active" ms-class-fadein="el.active" ms-attr-data-lazyload-original="{{el.src}}" data-lazyload-width="100%" data-lazyload-height="auto" data-lazyload-itemeffect="fadeIn" ms-lazyload>
+                <div class="posa title">
+                    <strong>电子游戏</strong>
+                </div>
+                <div class="posa nav nav-tabs">
+                    <a href="javascript:;" ms-class-active="el.active" ms-repeat="tabList" ms-on-click="clickTabHandler($event, el)">
+                        {{el.title|html}}
+                    </a>
+                </div>
+                <div class="posa ranking hidden-sm hidden-xs" ms-mouseleave="closeRankingHandler">
+                    <dl class="col-xs-6">
+                        <dt class="text-overflow"><i class="icon iconfont icon-love"></i>玩家最爱排行榜</dt>
+                        <dd class="posr text-center clearfix">
+                            <img src="/images/ranking1.png">
+                            <div class="posa btm-wrapper">
+                                <div class="col-xs-4 btm-txt">PT</div>
+                                <div class="col-xs-8 text-overflow btm-txt">开始游戏</div>
+                            </div>
+                            <s class="posa">1</s>
+                        </dd>
+                        <dd class="text-left">
+                            <s>2</s>
+                            幸运大转盘
+                        </dd>
+                        <dd class="text-left">
+                            <s>3</s>
+                            西游夺宝
+                        </dd>
+                    </dl>
+                    <dl class="col-xs-6">
+                        <dt class="text-overflow"><i class="icon iconfont icon-hot"></i>最火游戏排行榜</dt>
+                        <dd class="posr text-center clearfix">
+                            <img src="/images/ranking2.png">
+                            <div class="posa btm-wrapper">
+                                <div class="col-xs-4 btm-txt">TTG</div>
+                                <div class="col-xs-8 text-overflow btm-txt">开始游戏</div>
+                            </div>
+                            <s class="posa">1</s>
+                        </dd>
+                        <dd class="text-left">
+                            <s>2</s>
+                            幸运大转盘
+                        </dd>
+                        <dd class="text-left">
+                            <s>3</s>
+                            西游夺宝
+                        </dd>
+                    </dl>
+                    <a href="javascript:;" class="posa switch-btn" ms-click="openRankingHandler">查看排行榜</a>
+                    <a href="javascript:;" class="posa more">更多>></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 content-right">
+    </div>
+</div>

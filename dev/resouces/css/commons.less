@@ -1,0 +1,474 @@
+@import "variable";
+[ms-controller],
+[ms-important] {
+    visibility: hidden;
+}
+
+body,
+html {
+    overflow-x: hidden;
+}
+
+body {
+    color: #3C3C3C;
+    -webkit-font-smoothing: antialiased;
+    background: @gray;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    color: #333;
+    font: 12px/1.5 tahoma, "microsoft yahei", '\5FAE\8F6F\96C5\9ED1'!important;
+}
+
+.posr {
+    position: relative;
+}
+
+.posa {
+    position: absolute;
+}
+
+.text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.icon-spin {
+    display: inline-block;
+    -moz-animation: spin 2s infinite linear;
+    -o-animation: spin 2s infinite linear;
+    -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear
+}
+
+.icon {
+    text-decoration: none;
+}
+
+.form-control {
+    &.danger {
+        border-color: #ac2925;
+        box-shadow: 0 0 5px #ac2925 inset;
+    }
+    &.success {
+        border-color: #5cb85c;
+        box-shadow: 0 0 5px #5cb85c inset;
+    }
+}
+
+
+@-moz-keyframes spin {
+    0% {
+        -moz-transform: rotate(0deg)
+    }
+    100% {
+        -moz-transform: rotate(359deg)
+    }
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg)
+    }
+    100% {
+        -webkit-transform: rotate(359deg)
+    }
+}
+
+@-o-keyframes spin {
+    0% {
+        -o-transform: rotate(0deg)
+    }
+    100% {
+        -o-transform: rotate(359deg)
+    }
+}
+
+@-ms-keyframes spin {
+    0% {
+        -ms-transform: rotate(0deg)
+    }
+    100% {
+        -ms-transform: rotate(359deg)
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(359deg)
+    }
+}
+
+@-moz-document url-prefix() {
+    .icon-spin {
+        height: .9em
+    }
+    .btn .icon-spin {
+        height: auto
+    }
+    .icon-spin.icon-large {
+        height: 1.25em
+    }
+    .btn .icon-spin.icon-large {
+        height: .75em
+    }
+}
+
+.form-control {
+    &.form-control-for-web {
+        padding: 2px;
+        height: 24px;
+        border-radius: 1px
+    }
+}
+
+.btn {
+    &.btn-for-web {
+        padding: 0px 10px;
+        height: 24px;
+    }
+}
+
+
+/*头部*/
+
+header {
+    z-index: 2;
+    background: @blue;
+    width: 100%;
+    .visible-xs-hidden {
+        padding: 0
+    }
+    .user-info {
+        height: 30px;
+        line-height: 30px;
+        color: @white;
+        text-align: right;
+        & > span,
+        & > a {
+            display: inline-block;
+            overflow: hidden;
+            margin-right: 5px;
+        }
+        span {
+            padding: 0 5px;
+            line-height: 30px;
+            height: 30px;
+            color: @white;
+            strong {
+                color: @yellow;
+            }
+        }
+        a {
+            text-decoration: none;
+            vertical-align: 5px;
+            line-height: 20px;
+            height: 20px;
+            &.btn {
+                line-height: 16px;
+                font-size: 12px;
+                padding: 0 5px;
+                border-radius: 2px;
+                .icon {
+                    font-size: 14px;
+                    vertical-align: -1px;
+                    &.icon-recharge {
+                        font-size: 10px;
+                        vertical-align: 0;
+                    }
+                }
+            }
+            &.icon-mail {
+                color: @white;
+                font-size: 24px;
+                margin-left: -2px;
+                vertical-align: 4px;
+                .acount {
+                    display: block;
+                    background-color: #d43f3a;
+                    border-radius: 50%;
+                    font-size: 12px;
+                    line-height: 13px;
+                    padding: 2px;
+                    text-decoration: none;
+                    top: 0;
+                    right: 0;
+                }
+                &:hover {
+                    color: @yellow;
+                    .acount {
+                        color: @white;
+                    }
+                }
+            }
+            &.icon-logout {
+                color: @white;
+                font-weight: 700;
+                font-size: 14px;
+                margin-right: 0;
+                margin-left: -2px;
+                &:hover {
+                    color: @yellow;
+                }
+            }
+        }
+    }
+    .loginbar {
+        height: 30px;
+        .form-inline {
+            padding: 3px 0;
+            .btn {
+                min-width: 48px;
+            }
+            .form-group {
+                &:nth-child(1) {
+                    label {
+                        font-size: 14px;
+                        top: 3px;
+                    }
+                }
+                &:nth-child(2) {
+                    label {
+                        font-size: 14px;
+                        top: 3px;
+                    }
+                }
+                &:nth-child(3) {
+                    .form-control {
+                        width: 80px
+                    }
+                    label {
+                        font-size: 12px;
+                        top: 4px;
+                    }
+                    .vcode {
+                        left: 0;
+                        right: 0;
+                        padding: 2px;
+                        background: rgba(0, 0, 0, .8);
+                        z-index: 1;
+                        img {
+                            width: 50px;
+                        }
+                        a {
+                            float: right;
+                            color: @yellow;
+                            height: 22px;
+                            cursor: pointer;
+                            text-decoration: none;
+                            &:hover {
+                                color: #ffe38c;
+                            }
+                        }
+                    }
+                }
+                .form-control {
+                    padding-left: 22px;
+                    width: 120px;
+                }
+                label {
+                    color: #999;
+                    left: 5px;
+                    margin: 0;
+                    cursor: text;
+                }
+            }
+        }
+    }
+    .navbar-header {    
+        padding: 0;
+        .navbar-brand {
+            padding: 0;
+            line-height: 52px;
+            height: 60px;
+            overflow: hidden;
+            position: relative;
+            .icon-logo {
+                color: @yellow;
+                font-size: 52px;
+                vertical-align: -16px;
+            }
+            .icon-slogan {
+                color: @white;
+                font-size: 90px;
+                vertical-align: -32px;
+            }
+        }
+        .visible-xs-block {
+            &.icon {
+                border-color: @white;
+                width: 30px;
+                color: @white;
+                font-size: 20px;
+                height: 30px;
+                padding: 0;
+                text-align: center;
+                line-height: 26px;
+                margin-top: 10px;
+                text-decoration: none;
+                &:active {
+                    border-color: @yellow;
+                    color: @yellow;
+                }
+            }
+        }
+    }
+    .navbar-nav {
+        a {
+            line-height: 30px;
+            color: @white;
+            text-align: left;
+            padding: 0;
+            font-size: 14px;
+            text-shadow: 0 1px 3px rgba(0,0,0,.4);
+            &.active {
+                color: @yellow;
+            }
+        }
+    }
+    /* 移动版折叠操作面板 */
+    .oprated-pannel {
+        display: none;
+        position: fixed;
+        top: 50px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, .5);
+        .container {
+            background: @gray;
+            padding: 20px;
+            height: auto;
+            margin: 0;
+            .login {
+                .vcode {
+                    input {
+                        width: 70%;
+                    }
+                    img {
+                        float: right;
+                        width: 84px;
+                    }
+                }
+                .btn {
+                    width: 40%;
+                }
+            }
+
+        }
+        /* 重新定义动画时间 */
+        .animated {
+            -webkit-animation-duration: .3s;
+            animation-duration: .3s;
+        }
+    }
+    .sys-notice {
+        top: 60px;
+        left: 0;
+        right: 0;
+        height: 26px;
+        background-color: @lightBlack;
+    }
+    /* 下拉子菜单 */
+    .submenu {
+        left: 0;
+        right: 0;
+        background-color: @lightBlue;
+        padding: 10px 0;
+        display: none;
+        .container {
+            div[class*="col-sm-"] {
+                padding: 0;
+                a {
+                    position: relative;
+                    display: block;
+                    color: #fff;
+                    line-height: 26px;
+                    font-size: 12px;
+                    text-shadow: 0 1px 3px rgba(0,0,0,.4);
+                    .icon-remen {
+                        position: absolute;
+                        font-size: 10px;
+                        text-shadow: none;
+                        top: -4px;
+                    }
+                    &.hot {
+                        color: @yellow;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.j-notice {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background-color: @lightBlack;
+    opacity: 0;
+}
+
+@media (min-width: 768px) {
+    .bd {
+        margin-top: 86px;
+    }
+    .navbar-nav {
+        float: none;
+        margin: 0;
+    }
+    .col-sm-5 {
+        &.col-sm-5-30 {
+            width: 30%;
+        }
+        &.col-sm-5-50 {
+            width: 50%;
+        }
+    }
+    .col-sm-1 {
+        &.col-sm-1-10 {
+            width: 10%;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        .submenu {
+            display: none;
+        }
+        .navbar-header {
+            .navbar-brand {
+                margin-left: 10px;
+                line-height: 22px;
+                height: 50px;
+                .icon-logo {
+                    font-size: 42px;
+                    vertical-align: -22px;
+                }
+                .icon-slogan {
+                    font-size: 70px;
+                    vertical-align: -34px;
+                }
+            }
+        }
+        .sys-notice {
+            top: 50px;
+        }
+    }
+    .bd {
+        margin-top: 76px;
+    }
+}
